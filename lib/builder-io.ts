@@ -16,25 +16,38 @@ export async function getBuilderContent(
 ) {
   try {
     const params = new URLSearchParams({
-      apiKey: BUILDER_API_KEY,
+      model,
       limit: (options?.limit || 100).toString(),
       offset: (options?.offset || 0).toString(),
     });
 
-    if (options?.query) {
-      params.append('query', JSON.stringify(options.query));
+    // Use API route for client-side fetching, direct API for server-side
+    const isClientSide = typeof window !== 'undefined';
+
+    if (isClientSide) {
+      const response = await fetch(`/api/builder/content?${params.toString()}`);
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+      return await response.json();
+    } else {
+      // Server-side: use direct API with ISR
+      if (options?.query) {
+        params.append('query', JSON.stringify(options.query));
+      }
+      params.append('apiKey', BUILDER_API_KEY);
+
+      const response = await fetch(`${BUILDER_API_BASE}/${model}?${params.toString()}`, {
+        next: { revalidate: 60 }, // ISR: revalidate every 60 seconds
+      });
+
+      if (!response.ok) {
+        throw new Error(`Builder.io API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data.results || [];
     }
-
-    const response = await fetch(`${BUILDER_API_BASE}/${model}?${params.toString()}`, {
-      next: { revalidate: 60 }, // ISR: revalidate every 60 seconds
-    });
-
-    if (!response.ok) {
-      throw new Error(`Builder.io API error: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data.results || [];
   } catch (error) {
     console.error('Builder.io fetch error:', error);
     return [];
