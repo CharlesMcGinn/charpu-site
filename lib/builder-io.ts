@@ -1,4 +1,4 @@
-const BUILDER_API_KEY = 'charlesapi';
+const BUILDER_API_KEY = 'da2b7228a4fa4a45b76e5f8144452567';
 const BUILDER_API_BASE = 'https://cdn.builder.io/api/v1/content';
 
 interface BuilderContent {
