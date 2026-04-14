@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { getBuilderContent, type LogoItem } from '@/lib/builder-io'
+import type { LogoItem } from '@/lib/sanity'
 
 export default function LogosCarousel() {
   const [logos, setLogos] = useState<LogoItem[]>([])
@@ -10,8 +10,14 @@ export default function LogosCarousel() {
   useEffect(() => {
     const fetchLogos = async () => {
       setLoading(true)
-      const data = await getBuilderContent('client-logos')
-      setLogos(data)
+      try {
+        const response = await fetch('/api/sanity/content?type=client-logos')
+        const data = await response.json()
+        setLogos(data)
+      } catch (error) {
+        console.error('Failed to fetch logos:', error)
+        setLogos([])
+      }
       setLoading(false)
     }
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
-import { getBuilderContent, type Film } from '@/lib/builder-io'
+import type { Film } from '@/lib/sanity'
 
 export default function FilmGallery() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
@@ -14,13 +14,24 @@ export default function FilmGallery() {
   useEffect(() => {
     const fetchFilms = async () => {
       setLoading(true)
-      const [featured, side] = await Promise.all([
-        getBuilderContent('featured-works'),
-        getBuilderContent('side-films-preview'),
-      ])
-      
-      setFeaturedFilms(featured)
-      setSideFilms(side)
+      try {
+        const [featuredRes, sideRes] = await Promise.all([
+          fetch('/api/sanity/content?type=featured-works'),
+          fetch('/api/sanity/content?type=side-films-preview'),
+        ])
+
+        const [featured, side] = await Promise.all([
+          featuredRes.json(),
+          sideRes.json(),
+        ])
+
+        setFeaturedFilms(featured)
+        setSideFilms(side)
+      } catch (error) {
+        console.error('Failed to fetch films:', error)
+        setFeaturedFilms([])
+        setSideFilms([])
+      }
       setLoading(false)
     }
 

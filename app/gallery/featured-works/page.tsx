@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import FilmCardModal from '@/components/film-card-modal'
-import { getBuilderContent, type Film } from '@/lib/builder-io'
+import type { Film } from '@/lib/sanity'
 
 export default function FeaturedWorksPage() {
   const [films, setFilms] = useState<Film[]>([])
@@ -15,16 +15,22 @@ export default function FeaturedWorksPage() {
   useEffect(() => {
     const fetchFilms = async () => {
       setLoading(true)
-      const data = await getBuilderContent('featured-works')
-      setFilms(data)
+      try {
+        const response = await fetch('/api/sanity/content?type=featured-works')
+        const data = await response.json()
+        setFilms(data)
+      } catch (error) {
+        console.error('Failed to fetch films:', error)
+        setFilms([])
+      }
       setLoading(false)
     }
 
     fetchFilms()
   }, [])
 
-  const selectedFilm = films.find(f => f.id === selectedFilmId)
-  const selectedIndex = films.findIndex(f => f.id === selectedFilmId)
+  const selectedFilm = films.find(f => f._id === selectedFilmId)
+  const selectedIndex = films.findIndex(f => f._id === selectedFilmId)
 
   const handlePrevious = () => {
     if (selectedIndex > 0) {
@@ -67,11 +73,11 @@ export default function FeaturedWorksPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {films.map((film) => (
                   <div
-                    key={film.id}
+                    key={film._id}
                     className="aspect-video relative overflow-hidden cursor-pointer group"
-                    onMouseEnter={() => setHoveredId(film.id)}
+                    onMouseEnter={() => setHoveredId(film._id)}
                     onMouseLeave={() => setHoveredId(null)}
-                    onClick={() => setSelectedFilmId(film.id)}
+                    onClick={() => setSelectedFilmId(film._id)}
                   >
                     <img
                       src={film.bannerImage || '/banner.png'}
