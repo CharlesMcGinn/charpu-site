@@ -1,24 +1,38 @@
-import { createClient } from '@sanity/client'
+import { createClient, type SanityClient } from '@sanity/client'
 
 const SANITY_PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || ''
 const SANITY_DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 const SANITY_API_VERSION = '2024-01-01'
 
+let sanityClient: SanityClient | null = null
+
 if (!SANITY_PROJECT_ID) {
-  console.warn('NEXT_PUBLIC_SANITY_PROJECT_ID is not set. Sanity integration may not work.')
+  console.warn('NEXT_PUBLIC_SANITY_PROJECT_ID is not set. Sanity integration will return empty data.')
+} else {
+  try {
+    sanityClient = createClient({
+      projectId: SANITY_PROJECT_ID,
+      dataset: SANITY_DATASET,
+      apiVersion: SANITY_API_VERSION,
+      useCdn: true,
+    })
+  } catch (error) {
+    console.error('Failed to initialize Sanity client:', error)
+    sanityClient = null
+  }
 }
 
-export const sanityClient = createClient({
-  projectId: SANITY_PROJECT_ID,
-  dataset: SANITY_DATASET,
-  apiVersion: SANITY_API_VERSION,
-  useCdn: true,
-})
+export { sanityClient }
 
 export async function getSanityContent(
   query: string,
   params?: Record<string, any>
 ) {
+  if (!sanityClient) {
+    console.warn('Sanity client not initialized. Please set NEXT_PUBLIC_SANITY_PROJECT_ID.')
+    return []
+  }
+
   try {
     const data = await sanityClient.fetch(query, params)
     return data || []
