@@ -47,10 +47,11 @@ export default function HeroSection() {
 
       {/* Content */}
       {/* <div className="relative z-10 w-full h-full flex flex-col justify-end p-12 pb-24"> */}
-      <div className="absolute bottom-10 left-12 z-30 pointer-events-none">
+      {/* <div className="absolute bottom-10 left-12 z-30 pointer-events-none"> */}
+      <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-12 z-30 pointer-events-none">
         {/* Name and Roles - Bottom Left */}
         <div>
-          <h1 className="text-7xl md:text-8xl font-bold tracking-wider mb-8 text-white mix-blend-exclusion">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-wider mb-6 sm:mb-8 text-white mix-blend-exclusion leading-tight">
             Carlos Fernandez<br />Puertolas
           </h1>
           <div className="flex gap-16">

@@ -31,7 +31,7 @@ export default function LogosCarousel() {
   return (
     <section className="bg-black py-20 px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-sm tracking-widest text-gray-400 mb-16 text-center">I've worked with...</h2>
+        <h2 className="text-sm tracking-widest text-gray-400 mb-16 text-center">You might know me from...</h2>
         
         {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center"> */}
         <div className="flex flex-wrap justify-center gap-12">

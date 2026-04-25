@@ -692,7 +692,8 @@ thing("Yo.");
     browser at intervals.
     */
     function touch_move_handler(e) {
-        e.preventDefault(); //Prevents the default action from happening
+        //e.preventDefault(); //Prevents the default action from happening
+        if (mouse.down) e.preventDefault(); // Only prevent default if the touch is active, allowing for normal scrolling when not interacting with the fluid
         mouse.px = mouse.x;
         mouse.py = mouse.y;
 
