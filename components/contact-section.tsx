@@ -14,7 +14,7 @@ export default function ContactSection() {
             href="mailto:"
             className="group inline-block"
           >
-            <h3 className="text-5xl md:text-6xl font-bold text-white group-hover:text-purple-400 transition-colors mb-4">
+            <h3 className="text-3xl md:text-3xl font-bold text-white group-hover:text-purple-400 transition-colors mb-4">
               contact@carlos.com
             </h3>
             <div className="flex items-center gap-2 text-white/60 group-hover:text-purple-400 transition-colors">

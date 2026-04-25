@@ -693,7 +693,8 @@ thing("Yo.");
     */
     function touch_move_handler(e) {
         //e.preventDefault(); //Prevents the default action from happening
-        if (mouse.down) e.preventDefault(); // Only prevent default if the touch is active, allowing for normal scrolling when not interacting with the fluid
+        //if (mouse.down) e.preventDefault(); // Only prevent default if the touch is active, allowing for normal scrolling when not interacting with the fluid
+        if (e.touches.length > 1) return; // allow gestures
         mouse.px = mouse.x;
         mouse.py = mouse.y;
 

@@ -31,7 +31,8 @@ console.log("Test 1")
       {/* Canvas Background */}
       <canvas
         id="fluid-canvas"
-        className="absolute inset-0 w-full h-full z-20"
+        //className="absolute inset-0 w-full h-full z-20"
+        className="absolute inset-0 w-full h-full z-20 pointer-events-none"
       />
 
       <Script
