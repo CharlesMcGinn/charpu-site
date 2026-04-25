@@ -14,6 +14,7 @@ export default function HeroSection() {
   // }, [])
 
  
+console.log("Test 1")
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
