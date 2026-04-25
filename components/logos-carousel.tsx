@@ -31,47 +31,33 @@ export default function LogosCarousel() {
   return (
     <section className="bg-black py-20 px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-sm tracking-widest text-gray-400 mb-16 text-center">\ Selected Clients</h2>
+        <h2 className="text-sm tracking-widest text-gray-400 mb-16 text-center">I've worked with...</h2>
         
-        {/* Auto-scrolling carousel */}
-        <div className="relative overflow-hidden">
-          <div className="flex gap-16 items-center justify-center">
-            {/* Animated carousel */}
-            <div className="flex gap-16 items-center animate-scroll whitespace-nowrap">
-              {[...logos, ...logos].map((logo, idx) => (
-                <div 
-                  key={idx}
-                  className="flex-shrink-0 h-20 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity"
-                >
-                  <img 
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center"> */}
+        <div className="flex flex-wrap justify-center gap-12">
+          {logos.map((logo) => (
+            <div
+              key={logo._id}
+              className="flex items-center justify-center h-20 opacity-80 hover:opacity-100 transition-transform transform hover:scale-105"
+            >
+              {logo.url ? (
+                <a href={logo.url} target="_blank" rel="noopener noreferrer">
+                  <img
                     src={logo.image}
                     alt={logo.name}
                     className="h-full object-contain max-w-xs"
                   />
-                </div>
-              ))}
+                </a>
+              ) : (
+                <img
+                  src={logo.image}
+                  alt={logo.name}
+                  className="h-full object-contain max-w-xs"
+                />
+              )}
             </div>
-          </div>
+          ))}
         </div>
-
-        <style jsx>{`
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-          
-          .animate-scroll {
-            animation: scroll 20s linear infinite;
-          }
-          
-          .animate-scroll:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
       </div>
     </section>
   )

@@ -20,15 +20,19 @@ export default function BioSection() {
             {/* Bio Text */}
             <div className="flex flex-col justify-start">
               <p className="text-white/90 leading-relaxed mb-8 text-sm">
-                Carlos Fernandez Puertolas is an award-winning filmmaker from Moloka'i, Hawai'i, born and raised with a deep connection to place, people, and story. With over ten years of experience in the filmmaking landscape, his work focuses on capturing authentic human experiences through a visual language that blends cinematic beauty with emotional honesty. His early career has been spent documenting and telling stories from cultures around the world with a commitment to bringing far corners of the earth to household screens the way his younger self had always dreamt of seeing.
+                Carlos Fernandez Puertolas is an award-winning Spanish animator and director with over 20 years of experience in the animation industry.
               </p>
               
               <p className="text-white/90 leading-relaxed mb-8 text-sm">
-                Carlos now focuses on commercial, documentary, and branded filmmaking as a director and cinematographer, holding and elevating the craft of short form deep emotional storytelling through his series titled Layers, a style widely applicable to industries in every sector. In 2025 he founded Innerbloom, a boutique production company that blends together the efficiency of small crew productions with big impact execution. Whether he's shooting on the road or at home in Hawai'i, he approaches every story with intention, respect, and a commitment to showing the deeper layers of who we are.
+                He is currently the Head of Animation at DreamWorks Animation on the upcoming animated feature film "Shrek 5." Throughout his DreamWorks tenure he has contributed to some of the studio's most iconic franchises and films such as "Shrek", "Madagascar", "Megamind", and "The Boss Baby." In 2015, he became the Head of Character Animation on "The Boss Baby", and later led animation on "Trolls World Tour" and "Ruby Gillman: Teenage Kraken."
+              </p>
+              
+              <p className="text-white/90 leading-relaxed mb-8 text-sm">
+                Alongside his studio work, Carlos continues to pursue personal storytelling, directing animated and live-action shorts such as "Frank & Emmet," which have received international recognition and awards. His creative curiosity also extends into experimental projects, including the animated series "Across Dimensions with Terry Benson", where he explores new narrative formats and visual approaches, as well as his latest animated short film, "How Not to Die on an Alien Planet."
               </p>
 
               <p className="text-white/60 text-sm">
-                Based in Honolulu, Hawai'i.
+                Based in Glendale, CA.
               </p>
             </div>
           </div>
@@ -36,27 +40,15 @@ export default function BioSection() {
 
         {/* Awards Section */}
         <div className="border-t border-white/10 pt-12">
-          <h2 className="text-sm tracking-widest text-gray-400 mb-8">\ Bio</h2>
+          <h2 className="text-sm tracking-widest text-gray-400 mb-8">\ News & Awards</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="border-b border-white/10 pb-6">
-              <p className="text-white/60 text-xs mb-2">Winner Norcal Emmy Awards</p>
-              <p className="text-white text-sm">Hula is Hawai'i</p>
-              <p className="text-white/60 text-xs">Associate Producer</p>
+              <p className="text-white/60 text-xs mb-2">Variety</p>
+              <p className="text-white text-sm"><a href="https://variety.com/gallery/variety-10-animators-to-watch-2017/carlos-puertolas/" target="_blank" rel="noopener noreferrer">Variety's 2017 10 Animators to Watch</a></p>
             </div>
             <div className="border-b border-white/10 pb-6">
-              <p className="text-white/60 text-xs mb-2">2x Telly Awards - Art Direction</p>
-              <p className="text-white text-sm">Kuku Kapa Commercial</p>
-              <p className="text-white/60 text-xs">Associate Producer, DP, Edit</p>
-            </div>
-            <div className="border-b border-white/10 pb-6">
-              <p className="text-white/60 text-xs mb-2">Best Cinematography - Indie X Film Fest 2025</p>
-              <p className="text-white text-sm">Returning to Olivia</p>
-              <p className="text-white/60 text-xs">Director, DP</p>
-            </div>
-            <div className="border-b border-white/10 pb-6">
-              <p className="text-white/60 text-xs mb-2">Outstanding Achievement (Short Documentary) - Indie X Film Fest 2025</p>
-              <p className="text-white text-sm">Returning to Olivia</p>
-              <p className="text-white/60 text-xs">Director, DP</p>
+              <p className="text-white/60 text-xs mb-2">Variety</p>
+              <p className="text-white text-sm"><a href="https://variety.com/2018/film/news/academy-new-members-2018-record-1202856702/" target="_blank" rel="noopener noreferrer">Academy Invites Record 928 New Members</a></p>
             </div>
           </div>
         </div>

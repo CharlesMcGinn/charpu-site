@@ -1,6 +1,8 @@
 import {
   getLogos,
   getFeaturedWorks,
+  getFeaturedSideFilms,
+  getAllStudioProjects,
   getSideFilms,
 } from '@/lib/sanity'
 
@@ -25,7 +27,12 @@ export async function GET(request: Request) {
       case 'featured-works':
         data = await getFeaturedWorks()
         break
+      case 'studio-projects':
+        data = await getAllStudioProjects()
+        break
       case 'side-films-preview':
+        data = await getFeaturedSideFilms()
+        break
       case 'side-films':
         data = await getSideFilms()
         break

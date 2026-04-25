@@ -11,11 +11,11 @@ export default function ContactSection() {
         {/* Email */}
         <div className="mb-20">
           <a 
-            href="mailto:carlos@innerbloom.co"
+            href="mailto:"
             className="group inline-block"
           >
             <h3 className="text-5xl md:text-6xl font-bold text-white group-hover:text-purple-400 transition-colors mb-4">
-              carlos@innerbloom.co
+              contact@carlos.com
             </h3>
             <div className="flex items-center gap-2 text-white/60 group-hover:text-purple-400 transition-colors">
               <ExternalLink size={20} />
@@ -26,7 +26,7 @@ export default function ContactSection() {
         {/* Social Links */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <a 
-            href="https://instagram.com"
+            href="https://www.instagram.com/charpu_art/"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-4 pb-6 border-b border-white/10 hover:border-purple-400 transition-colors"
@@ -36,12 +36,12 @@ export default function ContactSection() {
           </a>
 
           <a 
-            href="https://x.com"
+            href="https://www.linkedin.com/in/carlosfpuertolas/"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-4 pb-6 border-b border-white/10 hover:border-purple-400 transition-colors"
           >
-            <span className="text-3xl font-bold text-white group-hover:text-purple-400 transition-colors">X</span>
+            <span className="text-3xl font-bold text-white group-hover:text-purple-400 transition-colors">LinkedIn</span>
             <ExternalLink size={24} className="text-white/60 group-hover:text-purple-400 transition-colors" />
           </a>
 

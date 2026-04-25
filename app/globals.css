@@ -123,6 +123,10 @@
     @apply bg-background text-foreground;
   }
 
+  a {
+    color: #a855f7
+  }
+
   /* Custom scrollbars */
   ::-webkit-scrollbar {
     width: 8px;
@@ -147,4 +151,22 @@
     scrollbar-width: thin;
     scrollbar-color: #a855f7 transparent;
   }
+}
+
+#fluid-canvas {
+  pointer-events: none;
+}
+
+canvas {
+  outline: 2px solid red !important;
+  pointer-events: auto !important;
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: auto;
+}
+
+#hero-overlay {
+  pointer-events: none;
 }

@@ -10,7 +10,7 @@ export default function Footer() {
           © {currentYear} Carlos Fernandez Puertolas. All rights reserved.
         </div>
         <div className="text-sm text-white/60">
-          Built with <span className="text-purple-400">precision</span> and <span className="text-purple-400">intention</span>
+          Creado con <span className="text-purple-400">creatividad</span> y <span className="text-purple-400">alma</span>
         </div>
       </div>
     </footer>
