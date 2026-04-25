@@ -181,6 +181,7 @@ export default function ProtectedFilmClient({ film, slug }: any) {
             onChange={(e) => setPassword(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Enter password"
+            autoFocus
             className="px-4 py-2 bg-black border border-white text-white placeholder-white/40"
           />
           <button onClick={handleUnlock} className="bg-purple-500 hover:bg-purple-600 px-4 py-2 transition">
