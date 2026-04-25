@@ -22,6 +22,7 @@ export async function GET(request: Request) {
 
     switch (type) {
       case 'client-logos':
+        console.log('API TYPE:', type)
         data = await getLogos()
         break
       case 'featured-works':
