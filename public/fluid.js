@@ -95,6 +95,16 @@ thing("Yo.");
         console.log("INIT RUNNING");
         console.log("particles before reset:", particles.length);
 
+        // Reset particles and cells in case of re-initialization
+        particles = [];
+        vec_cells = [];
+
+        // Remove existing event listeners to prevent duplicates on re-initialization
+        w.removeEventListener("mousedown", mouse_down_handler);
+        w.removeEventListener("touchstart", touch_start_handler);
+        w.removeEventListener("mouseup", mouse_up_handler);
+        w.removeEventListener("touchend", touch_end_handler);
+
         //These lines get the canvas DOM element and canvas context, respectively.
         canvas = document.getElementById("fluid-canvas");
         if (!canvas) {

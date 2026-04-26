@@ -13,6 +13,13 @@ export default function HeroSection() {
   //   }
   // }, [])
 
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).Fluid) {
+      console.log('Re-initializing Fluid')
+      ;(window as any).Fluid.initialize()
+    }
+  }, [])
+
  
 console.log("Test 1")
 
