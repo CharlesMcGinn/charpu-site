@@ -28,6 +28,7 @@ export default function LogosCarousel() {
     return null
   }
 
+  console.log('logos data:', logos)
   return (
     <section className="bg-black py-20 px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
